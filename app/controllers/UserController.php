@@ -184,13 +184,54 @@ class UserController extends BaseController {
 
 	}
 
+	public function password_update()
+	{
+		$input = Input::all();
+                
+        // FORM KONTROLLERİNİ BELİRLEYELİM
+        $rules = array(
+        	'old_password' => 'required',
+        	'password' => 'required|confirmed',
+        	'password_confirmation' => 'required'       
+        	);
+
+        $messages = array(
+        	'old_password.required' => 'Lütfen eski parolanızı yazın',
+        	'password.required' => 'Lütfen yeni parolanızı yazın',
+        	'password_confirmation.required' => 'Lütfen yeni parolanızı dogrulayın',
+        	'password.confirmed' => 'Girdiginiz yeni şifreler eşleşmiyor'
+        	);
+
+        $validator = Validator::make($input, $rules, $messages);
+
+        if ($validator->fails()) {
+                    
+            // HATA MESAJLARI VE INPUT DEĞERLERİYLE FORMA  YÖNLENDİRELİM
+            return Redirect::to('user/information')->withInput()->withErrors($validator->messages());
+                    
+        } else {
+        	if (Hash::check($input['old_password'], Auth::user()->password))
+        	{
+        		$user = User::findOrFail(Auth::user()->id);
+        		$user->password = Hash::make($input['password']);
+        		$user->save();
+
+        		return Redirect::to('user/information')->with('message', 'Başarılı bir şekilde parolanızı degiştirdiniz');
+        	} else {
+        		return Redirect::to('user/information')->with('message', 'Şimdiki parolanızı yanlış giriyorsunuz');
+        	}
+        }
+
+	}
+
 	public function Index()
 	{
+
 		$confirmed = DB::select('select * from comments where user_id = ? and state = 1', array(Auth::user()->id));
 
     	$mycomments = DB::select('select * from comments where user_id = ? and state = 2', array(Auth::user()->id));
 
-    	return View::make('user.profile', compact('confirmed', 'mycomments'));
+    	return View::make('user.profile', compact('confirmed', 'mycomments', 'hop', 'top'));
 	}
 
 	public function logout()

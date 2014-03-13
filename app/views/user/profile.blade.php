@@ -60,7 +60,6 @@
 					<div class="box-content">
 						<h2>Merhaba {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h2>
 						<p>Profil sayfanıza hoş geldiniz.</p>
-
 					</div>
 				</div><!--/span-->
 			

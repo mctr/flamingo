@@ -132,6 +132,48 @@
 						</fieldset>
 					{{ Form::close() }}
 
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-header well" data-original-title>
+						<h2><i class="icon-edit"></i> Parola Bilgilerim</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						{{ Form::open(array('url'=>'user/password_update', 'class'=>'form-horizontal')) }}
+						  <fieldset>
+							<legend>Parola Bilgisini Güncelle</legend>
+							<div class="control-group">
+							  <label class="control-label" for="date01">Eski Parola</label>
+							  <div class="controls">
+								{{ Form::password('old_password', array('class'=>'form-control input-xlarge')) }}
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="date01">Yeni Parola</label>
+							  <div class="controls">
+								{{ Form::password('password', array('class'=>'form-control input-xlarge')) }}
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="date01">Yeni Parola(Tekrar)</label>
+							  <div class="controls">
+								{{ Form::password('password_confirmation', array('class'=>'form-control input-xlarge')) }}
+							  </div>
+							</div>
+							
+							<div class="form-actions">
+								{{ Form::submit('Degiştir', array('class'=>'btn btn-success'))}}
+								<a href="{{ URL::route('user/profile') }}" class="btn btn-primary">İptal</a>
+							</div>
+						</fieldset>
+					{{ Form::close() }}
+
 					</div>
 				</div><!--/span-->
 			

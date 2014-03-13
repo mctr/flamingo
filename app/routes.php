@@ -63,4 +63,6 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::post('user/information_update', array('as' => 'information_update', 'uses' => 'UserController@information_update'));
 
+	Route::post('user/password_update', array('as' => 'password_update', 'uses' => 'UserController@password_update'));
+
 });
