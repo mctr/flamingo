@@ -52,7 +52,7 @@ class CommentsController extends BaseController {
 						->join('comments', 'users.id', '=', 'comments.who_did_id')
 						->select('users.first_name', 'users.last_name');
 		*/
-		$comments = DB::select('select * from comments where user_id = ?', array($id));
+		$comments = DB::select('select * from comments where user_id = ? and state = 1', array($id));
 
 		//$who = DB::select('select * from comments where  = ?', array($id));
 
@@ -64,7 +64,75 @@ class CommentsController extends BaseController {
 
 
 
-		return View::make('user.yorumlar', compact('user', 'comments', 'who'));
+		return View::make('user.yorumlar', compact('user', 'comments'));
+	}
+
+	public function confirm($id)
+	{
+
+		DB::table('comments')->where('id', $id)->update(array('state' => '1'));
+
+		return Redirect::to('user/confirm_waiting');
+
+	}
+
+	public function update($id)
+	{
+		$guncelle = DB::select('select * from comments where id = ?', array($id));
+
+		//DB::table('comments')->where('id', $id)->update(array(''));
+		return View::make('user.update', compact('guncelle'));
+	}
+
+	public function comment_update()
+	{
+		$input = Input::all();
+
+		$rules = array(
+            'content' => 'required'
+        );
+
+        $messages = array(
+            'content.required' => 'Lütfen yorumunuzu yazın'
+   	    );
+
+   	    $validator = Validator::make($input, $rules, $messages);
+
+   	    if ($validator->fails()) {
+                    
+                    // HATA MESAJLARI VE INPUT DEĞERLERİYLE FORMA  YÖNLENDİRELİM
+                    return Redirect::route('update')
+                            ->withInput()
+                            ->withErrors($validator->messages());
+                    
+                } else {
+                    
+                    // SORUYU VERİTABANINDA GÜNCELLEYELİM
+                	DB::table('comments')->where('id', $input['id'])->update(array('comment' => $input['content'], 'state' => '1'));
+                    
+                    // KULLANICIYI YÖNLENDİRELİM
+                    return Redirect::to('user/confirm_waiting');
+                    
+                }
+
+		
+
+		Redirect::to('user/confirm_waiting');
+	}
+
+	public function delete($id)
+	{
+		DB::table('comments')->where('id', $id)->delete();
+		return Redirect::to('user/confirm_waiting');
+	}
+
+	public function confirmed_comment()
+	{
+		$confirmed = DB::select('select * from comments where user_id = ? and state = 1', array(Auth::user()->id));
+
+    	$mycomments = DB::select('select * from comments where user_id = ? and state = 2', array(Auth::user()->id));
+    	
+    	return View::make('user.confirmed_comment', compact('mycomments', 'confirmed'));
 	}
 
 }

@@ -32,7 +32,7 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@logout'))
 
 Route::group(array('before' => 'auth'), function()
 {
-	Route::get('user/profile', function() {	return View::make('user.profile'); });
+	Route::get('user/profile', array('as' => 'user/profile', 'uses' => 'UserController@Index'));
 
 	Route::get('user/yorumyap', function() { return View::make('user.yorumyap'); });
 
@@ -40,10 +40,27 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('user/detail/{id}', array('as' => 'detail', 'uses' => 'UserController@detail'));
 
+	Route::get('user/confirm/{id}', array('as' => 'confirm', 'uses' => 'CommentsController@confirm'));
+
+	Route::get('user/update/{id}', array('as' => 'update', 'uses' => 'CommentsController@update'));
+
+	Route::post('user/comment_update', array('as' => 'user/comment_update', 'uses' => 'CommentsController@comment_update'));
+
+
+	Route::get('user/delete/{id}', array('as' => 'delete', 'uses' => 'CommentsController@delete'));
+
 	Route::post('newComment', array('as' => 'newComment', 'uses' => 'CommentsController@newComment'));
 
 	Route::get('user/{id}/yorumlar', array('as' => 'yorumlar', 'uses' => 'CommentsController@yorumlar'));
 
 	Route::get('user/mycomments', array('as' => 'user/mycomments', 'uses' => 'UserController@mycomments'));
+
+	Route::get('user/confirm_waiting', array('as' => 'user/confirm_waiting', 'uses' => 'UserController@confirm_waiting'));
+
+	Route::get('user/confirmed_comments', array('as' => 'user/confirmed_comments', 'uses' => 'CommentsController@confirmed_comment'));	
+
+	Route::get('user/information', function() { return View::make('user.personal_information'); });
+
+	Route::post('user/information_update', array('as' => 'information_update', 'uses' => 'UserController@information_update'));
 
 });
