@@ -65,4 +65,8 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::post('user/password_update', array('as' => 'password_update', 'uses' => 'UserController@password_update'));
 
+	Route::get('user/gallery', array('as' => 'gallery', 'uses' => 'PhotoController@gallery'));
+
+	Route::post('user/file_uploads', array('as'=> 'user/file_uploads', 'uses' => 'PhotoController@file_upload'));
+
 });
