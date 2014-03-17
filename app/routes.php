@@ -34,8 +34,6 @@ Route::group(array('before' => 'auth'), function()
 {
 	Route::get('user/profile', array('as' => 'user/profile', 'uses' => 'UserController@Index'));
 
-	Route::get('user/yorumyap', function() { return View::make('user.yorumyap'); });
-
 	Route::get('friends', array('as' => 'friends', 'uses' => 'HomeController@friends'));
 
 	Route::get('user/detail/{id}', array('as' => 'detail', 'uses' => 'UserController@detail'));
@@ -68,5 +66,13 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('user/gallery', array('as' => 'gallery', 'uses' => 'PhotoController@gallery'));
 
 	Route::post('user/file_uploads', array('as'=> 'user/file_uploads', 'uses' => 'PhotoController@file_upload'));
+
+	Route::get('user/image_list', array('as'=> 'user/image_list', 'uses' => 'PhotoController@image_list'));
+
+	Route::get('user/image_list/{id}', array('as'=> 'user/image_delete', 'uses' => 'PhotoController@image_delete'));
+
+	Route::get('user/galery/{id}', array('as'=> 'user/profile_pic_change', 'uses' => 'PhotoController@profile_picture_change'));
+
+	Route::get('user/detail/{id}/gallery', array('as' => 'detail/gallery', 'uses' => 'PhotoController@friend_gallery'));
 
 });

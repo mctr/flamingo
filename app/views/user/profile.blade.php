@@ -23,15 +23,15 @@
 					<div>Kullanıcılar</div>
 					<span class="notification">2</span>
 				</a>
-
-				<a data-rel="tooltip"  class="well span3 top-block" href="adminliste.html">
-					<span class="icon32 icon-color icon-user"></span>
-					<div>Admin</div>
-					<div>Listesi</div>
-					<span class="notification green">3</span>
-				</a>
 				-->
-				<a data-rel="tooltip" class="well span6 top-block" href="{{ URL::to('user/confirmed_comments') }}">
+				<a data-rel="tooltip"  class="well span4 top-block" href="{{ URL::route('user/image_list') }}">
+					<span class="icon32 icon-color icon-edit"></span>
+					<div>Fotograf</div>
+					<div>Listesi</div>
+					<span class="notification green">{{ count($images) }}</span>
+				</a>
+				
+				<a data-rel="tooltip" class="well span4 top-block" href="{{ URL::to('user/confirmed_comments') }}">
 
 					<span class="icon32 icon-color icon-envelope-open"></span>
 					<div>Onaylanmış</div>
@@ -39,7 +39,7 @@
 					<span class="notification yellow">{{ count($confirmed) }}</span>
 				</a>
 				
-				<a data-rel="tooltip" class="well span6 top-block" href="{{ URL::route('user/confirm_waiting') }}">
+				<a data-rel="tooltip" class="well span4 top-block" href="{{ URL::route('user/confirm_waiting') }}">
 					<span class="icon32 icon-color icon-envelope-closed"></span>
 					<div>Onaylanmamış</div>
 					<div>Yorumlar</div>

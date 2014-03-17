@@ -4,7 +4,7 @@
 						<li class="nav-header hidden-tablet">
 							<div class="col-md-5">
 								<center><strong>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</strong></center><br>
-	               				<a class="" href=""><img alt="" src="{{asset('assets/asset/img/gallery/2.jpg')}}" width="200" height="150"></a>
+	               				<a class="" href=""><img alt="" src="{{ URL::asset(Session::get('path')) }}" width="200" height="150"></a>
 	             			</div>
 						</li>
 						<li><a href="{{ URL::to('user/profile') }}"><i class="icon-home"></i><span class="hidden-tablet">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></a></li>
@@ -13,7 +13,7 @@
 						<li><a href="{{ URL::route('gallery') }}"><i class="icon-camera"></i><span class="hidden-tablet"> Resimlerim</span></a></li>
 						<li><a href="{{ URL::to('friends') }}"><i class="icon-user"></i><span class="hidden-tablet"> Arkadaşlar</span></a></li>
 						<li class="nav-header hidden-tablet">Durum</li>
-						<li><a href="#"><i class="icon-edit"></i><span class="hidden-tablet"> Parola Değiştir</span></a></li>
+						<li><a href="{{ URL::to('user/information') }}"><i class="icon-edit"></i><span class="hidden-tablet"> Parola Değiştir</span></a></li>
 						<li><a href="{{ URL::to('logout')}}"><i class="icon-lock"></i><span class="hidden-tablet"> Çıkış</span></a></li>
 					</ul>
 				</div><!--/.well-->

@@ -42,6 +42,21 @@
 						<div class="control-group">
 							  <label class="control-label" for="date01">Fotograf :</label><br>
 							  <div class="controls">
+							  	@if ($errors->count() > 0)
+
+								<div class="alert alert-danger">
+				
+									<ul>
+									@foreach ($errors->all() as $msg)
+									<li>{{ $msg }}</li>
+									@endforeach
+									</ul>
+								</div>
+
+								@endif
+								@if(Session::get('message'))
+								<div class="alert alert-success">{{ Session::get('message') }}</div>
+								@endif
 									{{ Form::open(['url' => 'user/file_uploads', 'files' => true, 'method' => 'post']) }}	
 						        	{{ Form::file('image', array('class' => 'input-file uniform_on')) }}<br><br>
 									{{ Form::submit('Yükle', array('class' => 'btn btn-primary')) }}

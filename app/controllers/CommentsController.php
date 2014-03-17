@@ -62,9 +62,10 @@ class CommentsController extends BaseController {
 
 		//$comments = Comment::with('user')->where('user_id', '=', $id)->get();
 
+		$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
 
 
-		return View::make('user.yorumlar', compact('user', 'comments'));
+		return View::make('user.yorumlar', compact('user', 'comments', 'profile_images'));
 	}
 
 	public function confirm($id)

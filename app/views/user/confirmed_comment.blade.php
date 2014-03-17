@@ -61,9 +61,7 @@
 					<div class="box-header well" data-original-title>
 						<h2><i class="icon-picture"></i> Onay Bekleyen Yorumlar</h2>
 						<div class="box-icon">
-							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
 						</div>
 					</div>
 
@@ -105,24 +103,7 @@
 					</div>
 				</div><!--/span-->
 			
-			</div><!--/row-->
-				  
-			<div class="modal hide fade" id="myModal">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h3>Güncelle</h3>
-			</div>
-			<div class="modal-body">
-			
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn" data-dismiss="modal">Close</a>
-				<a href="#" class="btn btn-primary">Save changes</a>
-			</div>
-			
-		</div>
-
-		  
+			</div><!--/row-->		  
        
 					
 			</div><!--/#content.span10-->

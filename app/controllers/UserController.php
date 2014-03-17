@@ -231,13 +231,26 @@ class UserController extends BaseController {
 
     	$mycomments = DB::select('select * from comments where user_id = ? and state = 2', array(Auth::user()->id));
 
-    	return View::make('user.profile', compact('confirmed', 'mycomments', 'hop', 'top'));
+    	$images = DB::select('select * from images where user_id = ?', array(Auth::user()->id));
+
+    	$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array(Auth::user()->id));
+
+    	//Profil resmini tüm sayfalarda göstermesi için Session'a atadık
+    	foreach($profile_images as $profile_image)
+    	{
+    		Session::put('path', $profile_image->image_path);
+    	}
+
+    	return View::make('user.profile', compact('confirmed', 'mycomments', 'images'));
 	}
 
 	public function logout()
     {
         // OTURUMU SONLANDIRALIM
         Auth::logout();
+
+        Session::forget('path');
+
             
         // KULLANICIYI SORULAR SAYFASINA YÖNLENDİRELİM
         return Redirect::route('login');
@@ -247,7 +260,9 @@ class UserController extends BaseController {
     {
     	$user = User::find($id);
 
-    	return View::make('user.personalpage', compact('user'));
+    	$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
+
+    	return View::make('user.personalpage', compact('user', 'profile_images'));
     }
 
     public function mycomments()

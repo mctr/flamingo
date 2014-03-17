@@ -43,10 +43,62 @@ class PhotoController extends BaseController {
 		   $image->save();
 
 		   // You don't need the Redirect to make the image upload work it's just here for example only
-		   return Redirect::back();
+		   return Redirect::back()->with('message', 'Başarıli bir şekilde Fotograf yüklediniz');
 		} else {
 		   return Redirect::back()->withErrors($validate)->withInput();
 		}
+
+	}
+
+	public function image_list()
+	{
+		$images = DB::select('select * from images where user_id = ?', array(Auth::user()->id));
+
+		return View::make('user.images_list', compact('images'));
+	}
+
+	public function image_delete($id)
+	{
+		$photo = Photo::find($id);
+
+		File::delete($photo->image_path);
+
+		$photo->delete();
+
+		return Redirect::to('user/image_list')->with('message', 'Başarılı bir şekilde fotografı sildiniz');
+	}
+
+	public function profile_picture_change($id)
+	{
+		$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array(Auth::user()->id));
+
+		foreach($profile_images as $profile_image)
+    	{
+    		$pic = Photo::find($profile_image->id);
+    		$pic->image_state = '0';
+    		$pic->save();
+    		//$profile_image->image_state = '0';
+    		//$profile_image->save();
+    	}
+
+    	$new_picture = Photo::find($id);
+
+    	$new_picture->image_state = '1';
+
+    	$new_picture->save();
+
+    	return Redirect::to('user/image_list')->with('message', 'Başarılı bir şekilde Profil resminizi degiştirdiniz');
+	}
+
+	public function friend_gallery($id)
+	{
+		$user = User::find($id);
+
+		$images = DB::select('select * from images where user_id = ?', array($id));
+
+		$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
+
+		return View::make('user.friend_gallery', compact('user', 'images', 'profile_images'));
 
 	}
 
