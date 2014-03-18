@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 	public function friends()
 	{
-		$friends = User::all();
+		$friends = DB::select('select * from users where status = 2 and id != ?', array(Auth::user()->id));
 
 
 		return View::make('user/friends', compact('friends'));
