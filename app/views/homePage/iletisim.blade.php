@@ -39,7 +39,7 @@
                   {{ Form::text('issue', null, array('class'=>'form-control', 'placeholder'=>'Konu')) }}
                 </div>
                 <div class="form-group">
-				{{ Form::textarea('content', null, array('class'=>'form-control', 'rows'=>'3', 'placeholder'=>'Mesaj')) }}
+				        {{ Form::textarea('content', null, array('class'=>'form-control', 'rows'=>'3', 'placeholder'=>'Mesaj')) }}
                  
                 </div>
                 <div class="form-group">

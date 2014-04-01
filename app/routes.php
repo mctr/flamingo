@@ -131,4 +131,6 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('user/detail/{id}/gallery', array('as' => 'detail/gallery', 'uses' => 'PhotoController@friend_gallery'));
 
+	Route::get('user/request_complaint', function() { return View::make('user.request_complaint'); });
+
 });
