@@ -41,5 +41,13 @@ class UserTableSeeder extends Seeder {
             'faculty_name'  =>  'Mühendislik Fakültesi',
             'department_name'  =>  'Bilgisayar Mühendisligi'
         ));
+        
+        User::create(array(
+            'first_name'  => 'Admin',
+            'last_name'  => 'Admin',
+            'password'  => Hash::make('12345'),
+            'email'     => 'admin@admin.com',
+            'status'	=> '3',
+        ));
     }
 }

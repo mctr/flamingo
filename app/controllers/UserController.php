@@ -33,7 +33,7 @@ class UserController extends BaseController {
 		} else {
 
 			// BÖYLE BİR ÜYE OLUP OLMADIĞINI KONTROL EDELİM
-            if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => '2' ))) {
+            if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'], 'status' => '1' ))) {
                    
                 // OTURUM AÇILDIĞINA GÖRE KULLANICIYI YÖNLENDİRELİM
                 return Redirect::to('user/profile');

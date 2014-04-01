@@ -28,24 +28,24 @@
             <hr>
             <div class="col-lg-7 col-lg-offset-0">
 
-              <form class="bs-example">
+              {{ Form::open(array('url'=>'homePage/iletisim', 'method' => 'post', 'class'=>'form-signup')) }}
                 <div class="form-group">
-                  <input type="text" class="form-control" id="inputDefault" placeholder="Ad ve Soyad">
+                  {{ Form::text('full_name', null, array('class'=>'form-control', 'placeholder'=>'Ad ve Soyad')) }}
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="inputDefault" placeholder="E-posta" >
+                  {{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email')) }}
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="inputDefault" placeholder="Konu">
+                  {{ Form::text('issue', null, array('class'=>'form-control', 'placeholder'=>'Konu')) }}
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" rows="3" id="textArea" placeholder="Mesaj"></textarea>
+				{{ Form::textarea('content', null, array('class'=>'form-control', 'rows'=>'3', 'placeholder'=>'Mesaj')) }}
+                 
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Gönder</button>
                 </div>        
-              </form>
-              
+             {{ Form::close() }}
           </div>
         </div>
       <!-- iletişim

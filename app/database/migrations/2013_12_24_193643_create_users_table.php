@@ -18,15 +18,15 @@ class CreateUsersTable extends Migration {
 
 			$table->string('first_name', 32);
 			$table->string('last_name', 32);
-			$table->string('email', 128)->unique();
+			$table->string('email', 128);
 			$table->string('password', 128);
-			$table->string('student_number', 15);
+			$table->string('student_number', 15)->nullable();
 			$table->string('phone_number', 15)->nullable();
 			$table->date('birthday')->nullable();
-			$table->string('gender');
+			$table->string('gender')->nullable();
 			$table->integer('status')->default(2);
-			$table->string('faculty_name', 72);
-			$table->string('department_name', 72);	
+			$table->string('faculty_name', 72)->nullable();
+			$table->string('department_name', 72)->nullable();	
 
 			$table->timestamps();
 

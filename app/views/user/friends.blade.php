@@ -47,7 +47,13 @@
 						<ul class="thumbnails">
 							@foreach ($friends as $friend)
 							<li>
-								<a title="{{$friend->first_name, $friend->last_name }}" href="{{ URL::route('detail', array('id' => $friend->id)) }}"> {{ ($friend->first_name) }} {{ ($friend->last_name) }} </a>
+								<a href="{{ URL::route('detail', array('id' => $friend->id)) }}">
+									<img class="dashboard-avatar" alt="Usman" src="#"></a>
+										<strong>Name : </strong>{{$friend->first_name}} {{ $friend->last_name }}
+								</a><br> 
+								<strong>D.T : </strong> {{ $friend->birthday }}<br>
+								
+								
 							</li><!-- <img src="{{ asset('assets/asset/img/gallery/3.jpg') }}" /> -->
 							@endforeach					
 						</ul>

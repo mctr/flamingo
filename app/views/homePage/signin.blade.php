@@ -11,16 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- CSS -->
-    {{ HTML::style('assets/css/bootstrap.css') }}
-    {{ HTML::style('assets/css/bootstrap.min.css') }}
-    {{ HTML::style('assets/css/bootstrap-modal-bs3patch.css') }}
-    {{ HTML::style('assets/css/bootstrap-modal.css') }}
-    {{ HTML::style('assets/css/stylish-portfolio.css') }}
-    {{ HTML::style('assets/css/button.css') }}
-    {{ HTML::style('assets/css/styless.css') }}
-    {{ HTML::style('assets/font-awesome/css/font-awesome.min.css') }}
-    {{ HTML::style('assets/css/demo.css') }}
-    {{ HTML::style('assets/css/style.css') }}
+	{{ HTML::style('assets/css/bootstrap.css') }}
+	{{ HTML::style('assets/css/bootstrap.min.css') }}
+	{{ HTML::style('assets/css/style.css') }}
 
 </head>
 <body style="background: lightblue ;">

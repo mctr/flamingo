@@ -16,10 +16,66 @@ Route::get('/', function()
 	return View::make('homePage.layout');
 });
 
-/*Route::get('login', function()
+
+Route::post('homePage/iletisim', array('as' => 'homePage/iletisim', 'uses' => 'RequestController@newrequest'));
+
+Route::get('admin/login', function() { return View::make('admin.login'); });
+
+Route::post('admin/login', array('as' => 'admin/login', 'uses' => 'AdminController@postLogin'));
+
+Route::get('admin/adminadd', function() { return View::make('admin.adminadd'); });
+
+Route::post('admin/adminadd', array('as' => 'admin/adminadd', 'uses' => 'AdminController@postCreate'));
+
+Route::group(array('before' => 'auth'), function()
 {
-	return View::make('homePage.signin');
-});*/
+	Route::get('admin/profile', array('as' => 'admin/profile', 'uses' => 'AdminController@Index'));
+	
+	Route::get('admin/users', array('as' => 'admin/users', 'uses' => 'AdminController@userListesi'));
+	
+	Route::get('admin/request', array('as' => 'admin/request', 'uses' => 'AdminController@request'));
+	
+	Route::get('admin/admins', array('as' => 'admin/admins', 'uses' => 'AdminController@adminListesi'));
+	
+	Route::get('admin/useronay', array('as' => 'admin/useronay', 'uses' => 'AdminController@onayListesi'));
+	
+	Route::get('admin/admindetails/{id}', array('as' => 'admindetails', 'uses' => 'AdminController@admindetails'));
+	
+	Route::get('admin/userdetails/{id}', array('as' => 'userdetails', 'uses' => 'AdminController@userdetails'));
+	
+	Route::get('admin/onaylama/{id}', array('as' => 'onaylama', 'uses' => 'AdminController@onaylama'));
+	
+	Route::get('admin/ret/{id}', array('as' => 'ret', 'uses' => 'AdminController@userret'));
+	
+	Route::get('admin/adminret/{id}', array('as' => 'adminret', 'uses' => 'AdminController@adminret'));
+	
+	Route::post('admin/adminupdate', array('as' => 'adminupdate', 'uses' => 'AdminController@adminupdate'));
+	
+	Route::post('admin/userupdate', array('as' => 'admin/userupdate', 'uses' => 'AdminController@userupdate'));
+	
+	Route::get('admin/userret/{id}', array('as' => 'userret', 'uses' => 'AdminController@userret'));
+	
+	Route::get('admin/commentdetails/{id}', array('as' => 'commentdetails', 'uses' => 'AdminController@commentdetails'));
+	
+	Route::post('admin/commentupdate', array('as' => 'admin/commentupdate', 'uses' => 'AdminController@commentupdate'));
+	
+	Route::post('admin/password_update', array('as' => 'password_update', 'uses' => 'AdminController@password_update'));
+	
+	Route::post('admin/user_password_update', array('as' => 'user_password_update', 'uses' => 'AdminController@user_password_update'));
+	
+	Route::get('admin/yorumret/{id}', array('as' => 'yorumret', 'uses' => 'AdminController@yorumret'));
+	
+	Route::get('admin/fotoret/{id}', array('as' => 'fotoret', 'uses' => 'AdminController@fotoret'));
+	
+	Route::get('admin/requestret/{id}', array('as' => 'requestret', 'uses' => 'AdminController@requestret'));
+});
+Route::get('admin/logout', array('as' => 'admin/logout', 'uses' => 'AdminController@logout'));
+
+
+
+
+
+
 
 Route::get('login', function() { return View::make('user.login'); });
 Route::post('login', array('as' => 'login', 'uses' => 'UserController@postLogin'));
