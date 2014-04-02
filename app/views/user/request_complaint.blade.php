@@ -4,6 +4,19 @@
 		İstek | Şİkayet
 @stop
 
+@section('styles')
+<style type="text/css">
+	textarea{
+		/*overflow: auto;*/
+		font-family: arial;
+        /*resize:none;*/
+        width: 400px;
+        height:120px;
+    }
+</style>
+
+@stop
+
 @section('content')
 		@include('user.header')
 
@@ -32,8 +45,27 @@
 					<div class="box-content">
 					<fieldset>
 						<legend>İstek - Şikayet</legend>
-						{{ Form::open(array('url'=>'homePage/iletisim', 'method' => 'post', 'class'=>'form-signup')) }}
-		              
+						@if ($errors->count() > 0)
+
+								<div class="alert alert-danger">
+				
+									<ul>
+									@foreach ($errors->all() as $msg)
+									<li>{{ $msg }}</li>
+									@endforeach
+									</ul>
+								</div>
+
+							@endif
+							@if(Session::get('message'))
+							<div class="alert alert-success">{{ Session::get('message') }}</div>
+							@endif
+						
+						{{ Form::open(array('url'=>'user/request_complaint', 'method' => 'post', 'class'=>'form-horizontal')) }}
+
+						{{ Form::hidden('full_name', Auth::user()->first_name) }}
+						{{ Form::hidden('email', Auth::user()->email) }}
+		    
 		              	<div class="control-group">
 							  <label class="control-label" for="date01">Konu </label>
 							  <div class="controls">
@@ -44,23 +76,15 @@
 						<div class="control-group">
 							  <label class="control-label" for="date01">Mesaj </label>
 							  <div class="controls">
-								  {{ Form::textarea('content', null, array('class'=>'form-control', 'rows'=>'5', 'placeholder'=>'Mesaj')) }}
+								  {{ Form::textarea('content', null, array('class'=>'form-control', 'placeholder'=>'Mesaj')) }}
 							  </div>
 						</div>
 
 						<div class="form-actions">
-								{{ Form::submit('Güncelle', array('class'=>'btn btn-success'))}}
-								<a href="{{ URL::to('') }}" class="btn btn-primary">İptal</a>
+								{{ Form::submit('Gönder', array('class'=>'btn btn-info'))}}
+								<a href="{{ URL::route('user/profile') }}" class="btn btn-danger">İptal</a>
 							</div>
 						</fieldset>
-						
-
-
-		                  {{ Form::text('full_name', null, array('class'=>'form-control', 'placeholder'=>'Ad ve Soyad')) }}
-		                  {{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email')) }}
-		                  {{ Form::text('issue', null, array('class'=>'form-control', 'placeholder'=>'Konu')) }}
-						  {{ Form::textarea('content', null, array('class'=>'form-control', 'rows'=>'3', 'placeholder'=>'Mesaj')) }}
-		                  {{ Form::submit('Gönder', array('class' => 'btn btn-primary')) }}        
             			
             			{{ Form::close() }}
 					</div>

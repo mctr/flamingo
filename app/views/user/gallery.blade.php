@@ -59,7 +59,7 @@
 								@endif
 									{{ Form::open(['url' => 'user/file_uploads', 'files' => true, 'method' => 'post']) }}	
 						        	{{ Form::file('image', array('class' => 'input-file uniform_on')) }}<br><br>
-									{{ Form::submit('Yükle', array('class' => 'btn btn-primary')) }}
+									{{ Form::submit('Yükle', array('class' => 'btn btn-success')) }}
 									{{ Form::close() }}
 							  </div>
 						</div>

@@ -70,14 +70,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/fotoret/{id}', array('as' => 'fotoret', 'uses' => 'AdminController@fotoret'));
 	
 	Route::get('admin/requestret/{id}', array('as' => 'requestret', 'uses' => 'AdminController@requestret'));
+
+	Route::get('admin/logout', array('as' => 'admin/logout', 'uses' => 'AdminController@logout'));
 });
-Route::get('admin/logout', array('as' => 'admin/logout', 'uses' => 'AdminController@logout'));
-
-
-
-
-
-
 
 Route::get('login', function() { return View::make('user.login'); });
 Route::post('login', array('as' => 'login', 'uses' => 'UserController@postLogin'));
@@ -134,5 +129,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('user/detail/{id}/gallery', array('as' => 'detail/gallery', 'uses' => 'PhotoController@friend_gallery'));
 
 	Route::get('user/request_complaint', function() { return View::make('user.request_complaint'); });
+
+	Route::post('user/request_complaint', array('as' => 'user/request_complaint', 'uses' => 'RequestController@user_newrequest'));
 
 });

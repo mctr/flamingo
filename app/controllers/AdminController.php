@@ -1,6 +1,6 @@
 <?php
 
-use Auth, BackendController, Form, Input, Redirect, Sentry, View;
+//use Auth, BackendController, Form, Input, Redirect, Sentry, View;
 
 class AdminController extends BaseController {
 	

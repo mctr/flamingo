@@ -49,13 +49,13 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="{{ URL::to('user/profile') }}">Profil</a></li>
-						<li><a href="#">Kullnıcılar</a></li>
+						<li><a href="#">Kullanıcılar</a></li>
 						<li class="divider"></li>
 						<li><a href="{{ URL::to('logout') }}">Çıkış</a></li>
 					</ul>
 				</div>
 				
-				<!-- theme selector starts -->
+				<!-- theme selector starts
 				<div class="btn-group pull-right theme-container" >
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="icon-tint"></i><span class="hidden-phone"> Change Theme / Skin</span>
@@ -76,12 +76,12 @@
 				
 				<div class="top-nav nav-collapse">
 					<ul class="nav">
-						<li><a href="#">Mezuniyet Yıllıgı</a></li>
-						<li>
+						<li><a href="#">MEZUNİYET YILLIGI UYGULAMASI</a></li>
+						<!--<li>
 							<form class="navbar-search pull-left">
 								<input placeholder="Search" class="search-query span2" name="query" type="text">
 							</form>
-						</li>
+						</li>-->
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
