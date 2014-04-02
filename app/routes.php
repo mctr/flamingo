@@ -35,6 +35,8 @@ Route::group(array('before' => 'auth'), function()
 	
 	Route::get('admin/request', array('as' => 'admin/request', 'uses' => 'AdminController@request'));
 	
+	Route::get('admin/mizah', array('as' => 'admin/mizah', 'uses' => 'AdminController@mizah'));
+	
 	Route::get('admin/admins', array('as' => 'admin/admins', 'uses' => 'AdminController@adminListesi'));
 	
 	Route::get('admin/useronay', array('as' => 'admin/useronay', 'uses' => 'AdminController@onayListesi'));

@@ -365,7 +365,7 @@ class AdminController extends BaseController {
 		
 		DB::table('users')->where('id', $id)->delete();
 		
-		return Redirect::to('admin/admins')->with('message', 'Admin Silindi!');;
+		return Redirect::to('admin/admins')->with('message', 'Admin Silindi!');
 	}
 	
 	public function yorumret($id) 
@@ -373,7 +373,7 @@ class AdminController extends BaseController {
 		
 		DB::table('comments')->where('id', $id)->delete();
 		
-		return Redirect::to('admin/users')->with('message', 'Yorum Silindi!');;
+		return Redirect::to('admin/users')->with('message', 'Yorum Silindi!');
 	}
 	
 	public function fotoret($id) 
@@ -381,7 +381,7 @@ class AdminController extends BaseController {
 				
 		DB::table('images')->where('id', $id)->delete();
 		
-		return Redirect::to('admin/users')->with('message', 'Fotoğraf Silindi!');;
+		return Redirect::to('admin/users')->with('message', 'Fotoğraf Silindi!');
 	}
 	
 	public function requestret($id) 
@@ -389,8 +389,9 @@ class AdminController extends BaseController {
 				
 		DB::table('requests')->where('id', $id)->delete();
 		
-		return Redirect::to('admin/request')->with('message', 'Şikayet Silindi!');;
+		return Redirect::to('admin/profile')->with('message', 'Şikayet Silindi!');
 	}
+	
 	
     // DETAY İŞLEMLERİ BURADA GERÇEKLEŞTİ
     public function commentdetails($id) 
@@ -515,7 +516,7 @@ class AdminController extends BaseController {
 		return View::make('admin.users', compact('users', 'admins', 'useronay', 'request'));
 	}
 	
-	public function request() 
+	public function mizah() 
 	{
 		
 		$useronay = DB::select('select * from users where status = 2');
@@ -523,7 +524,7 @@ class AdminController extends BaseController {
 		$users = DB::select('select * from users where status = 1');
 		$request = DB::select('select * from requests');
 		
-		return View::make('admin.request', compact('users', 'admins', 'useronay', 'request'));
+		return View::make('admin.mizah', compact('users', 'admins', 'useronay', 'request'));
 	}
 
 }

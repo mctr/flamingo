@@ -22,10 +22,10 @@
 					<span class="notification yellow">{{ count($users) }}</span>
 				</a>
 				
-				<a data-rel="tooltip" class="well span3 top-block" href="{{ URL::to('admin/request') }}">
-					<span class="icon32 icon-color icon-envelope-closed"></span>
-					<div>Gelen Mesajlar</div>
-					<div>Şikayetler</div>
-					<span class="notification red">{{ count($request) }}</span>
+				<a data-rel="tooltip" class="well span3 top-block" href="{{ URL::to('admin/mizah') }}">
+					<span class="icon32 icon-color icon-messages"></span>
+					<div>Paylaşılan</div>
+					<div>Mizahlar</div>
+					<span class="notification red">0</span>
 				</a>
 			</div>

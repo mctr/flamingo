@@ -11,6 +11,7 @@
 						
 						
 						<li class="nav-header hidden-tablet">Durum</li>
+						<li><a class="ajax-link" href="{{ URL::to('admin/profile')}}"><i class="icon icon-envelope-closed"></i><span class="hidden-tablet"> Şikayetler</span></a></li>
 						<li><a href="{{ URL::to('admin/logout')}}"><i class="icon icon-locked"></i><span class="hidden-tablet"> Çıkış</span></a></li>
 					</ul>
 				</div><!--/.well-->
