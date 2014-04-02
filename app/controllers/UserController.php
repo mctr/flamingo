@@ -231,9 +231,13 @@ class UserController extends BaseController {
 
     	$mycomments = DB::select('select * from comments where user_id = ? and state = 2', array(Auth::user()->id));
 
-    	$images = DB::select('select * from images where user_id = ?', array(Auth::user()->id));
+    	$images = DB::select('select * from images where user_id = ? and image_state != 3', array(Auth::user()->id));
 
     	$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array(Auth::user()->id));
+
+    	if (!$profile_images) {
+    		$profile_images = DB::select('select * from images where image_state = 3 and user_id = ?', array(Auth::user()->id));
+    	}
 
     	//Profil resmini tüm sayfalarda göstermesi için Session'a atadık
     	foreach($profile_images as $profile_image)
@@ -261,6 +265,11 @@ class UserController extends BaseController {
     	$user = User::find($id);
 
     	$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
+
+    	if (!$profile_images) {
+    		$profile_images = DB::select('select * from images where image_state = 3 and user_id = ?', array($id));
+    	}
+
 
     	return View::make('user.personalpage', compact('user', 'profile_images'));
     }

@@ -64,6 +64,10 @@ class CommentsController extends BaseController {
 
 		$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
 
+		if (!$profile_images) {
+    		$profile_images = DB::select('select * from images where image_state = 3 and user_id = ?', array($id));
+    	}
+
 
 		return View::make('user.yorumlar', compact('user', 'comments', 'profile_images'));
 	}

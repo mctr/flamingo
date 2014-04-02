@@ -11,6 +11,10 @@
 	  .sidebar-nav {
 		padding: 9px 0;
 	  }
+	  .smalll {
+	  	width: 120px;
+	  	height:140px;
+	  }
 	</style>
 @stop
 
@@ -44,14 +48,25 @@
 						<br/>
 						<ul class="thumbnails">
 							@foreach ($friends as $friend)
-							<li>
-								<a href="{{ URL::route('detail', array('id' => $friend->id)) }}">
-									<img class="dashboard-avatar" alt="" src="#"></a>
-										<strong>Name : </strong>{{$friend->first_name}} {{ $friend->last_name }}
-								</a><br> 
-								<strong>D.T : </strong> {{ $friend->birthday }}<br>
-								
-								
+								@foreach($profile_pic as $image)
+								@if ($image->user_id === $friend->id)
+									<li class="smalll">
+										<a href="{{ URL::route('detail', array('id' => $friend->id)) }}"><img class="smalll" src="{{ URL::asset($image->image_path )}}" alt="{{ $friend->first_name, $friend->last_name }}"><center>{{ $friend->first_name, $friend->last_name }}</center></a>
+									</li>
+
+								<!--	<img class="smalll thumbnail" src="{{ URL::asset($image->image_path )}}" alt="{{ $friend->first_name, $friend->last_name }}">
+									{{ $friend->first_name, $friend->last_name }}-->
+								@endif
+								<!--
+								@if ($image->user_id != $friend->id)
+									<li class="smalll">
+									<a href="{{ URL::route('detail', array('id' => $friend->id)) }}"><img class="smalll" src="{{URL::asset('assets/img/user_man.jpg') }}" alt="{{ $friend->first_name, $friend->last_name }}">{{ $friend->first_name, $friend->last_name }}</a>
+								</li>
+
+								@endif-->
+								@endforeach					
+							<!--<li>
+								<a title="{{$friend->first_name, $friend->last_name }}" href="{{ URL::route('detail', array('id' => $friend->id)) }}"> {{ ($friend->first_name) }} {{ ($friend->last_name) }} </a>
 							</li><!-- <img src="{{ asset('assets/asset/img/gallery/3.jpg') }}" /> -->
 							@endforeach					
 						</ul>

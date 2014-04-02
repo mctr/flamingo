@@ -326,6 +326,14 @@ class AdminController extends BaseController {
 	{
 		
 		DB::table('users')->where('id', $id)->update(array('status' => '1'));
+
+		$picture = new Photo();
+
+		$picture->user_id = $id;
+		$picture->image_path = 'assets/img/user_man.jpg';
+		$picture->image_state = '3';
+
+		$picture->save();
 		
 		return Redirect::to('admin/useronay');
 	}

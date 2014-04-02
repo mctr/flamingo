@@ -24,7 +24,9 @@ class HomeController extends BaseController {
 	{
 		$friends = DB::select('select * from users where status = 1 and id != ?', array(Auth::user()->id));
 
-		return View::make('user/friends', compact('friends'));
+		$profile_pic = DB::Select('select * from images where image_state = 1 or image_state = 3 and user_id != ?', array(Auth::user()->id));
+
+		return View::make('user/friends', compact('friends', 'profile_pic'));
 	}
 
 }

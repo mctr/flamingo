@@ -4,7 +4,7 @@ class PhotoController extends BaseController {
 
 	public function gallery()
 	{
-		$images = DB::select('select * from images where user_id = ?', array(Auth::user()->id));
+		$images = DB::select('select * from images where image_state != 3 and user_id = ?', array(Auth::user()->id));
 
 		return View::make('user.gallery', compact('images'));
 	}
@@ -52,7 +52,8 @@ class PhotoController extends BaseController {
 
 	public function image_list()
 	{
-		$images = DB::select('select * from images where user_id = ?', array(Auth::user()->id));
+		$images = DB::select('select * from images where user_id = ? and image_state != 3', array(Auth::user()->id));
+
 
 		return View::make('user.images_list', compact('images'));
 	}
@@ -81,6 +82,14 @@ class PhotoController extends BaseController {
     		//$profile_image->save();
     	}
 
+    	$old_profile_pic = $profile_images = DB::select('select * from images where image_state = 3 and user_id = ?', array(Auth::user()->id));
+
+    	foreach($old_profile_pic as $old)
+    	{
+    		$pic = Photo::find($old->id);
+    		$pic->delete();
+    	}
+
     	$new_picture = Photo::find($id);
 
     	$new_picture->image_state = '1';
@@ -94,9 +103,13 @@ class PhotoController extends BaseController {
 	{
 		$user = User::find($id);
 
-		$images = DB::select('select * from images where user_id = ?', array($id));
+		$images = DB::select('select * from images where image_state != 3 and user_id = ?', array($id));
 
 		$profile_images = DB::select('select * from images where image_state = 1 and user_id = ?', array($id));
+
+		if (!$profile_images) {
+    		$profile_images = DB::select('select * from images where image_state = 3 and user_id = ?', array($id));
+    	}
 
 		return View::make('user.friend_gallery', compact('user', 'images', 'profile_images'));
 
