@@ -79,7 +79,7 @@
 										<i class="icon-tags icon-white"></i> 
 										Profil Resmi Yap
 									</a>
-									<a class="btn btn-danger" href="{{ URL::route('user/image_delete', array('id' => $image->id)) }}">
+									<a class="btn btn-danger" href="{{ URL::route('user/image_delete', array('id' => $image->id)) }}" onclick="return confirm('Silmek İstediginize Emin misiniz?')">
 										<i class="icon-trash icon-white"></i> 
 										Sil
 									</a>

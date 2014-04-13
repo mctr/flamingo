@@ -96,7 +96,7 @@
 										<i class="icon-tags icon-white"></i> 
 										Güncelle
 									</a>
-									<a class="btn btn-danger" href="{{ URL::route('delete', array('id' => $comment->id)) }}">
+									<a class="btn btn-danger" href="{{ URL::route('delete', array('id' => $comment->id)) }}" onclick="return confirm('Silmek İstediginize Emin misiniz?')">
 										<i class="icon-trash icon-white"></i> 
 										Sil
 									</a>
