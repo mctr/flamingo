@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- The styles -->
-
+    
 	{{ HTML::style('assets/asset/css/bootstrap-cerulean.css') }}
 	{{ HTML::style('assets/asset/css/bootstrap-responsive.css') }}
 	{{ HTML::style('assets/asset/css/charisma-app.css') }}
