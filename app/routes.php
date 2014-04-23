@@ -16,19 +16,18 @@ Route::get('/', function()
 	return View::make('homePage.layout');
 });
 
-
 Route::post('homePage/iletisim', array('as' => 'homePage/iletisim', 'uses' => 'RequestController@newrequest'));
 
 Route::get('admin/login', function() { return View::make('admin.login'); });
 
 Route::post('admin/login', array('as' => 'admin/login', 'uses' => 'AdminController@postLogin'));
 
-Route::get('admin/adminadd', function() { return View::make('admin.adminadd'); });
-
-Route::post('admin/adminadd', array('as' => 'admin/adminadd', 'uses' => 'AdminController@postCreate'));
-
-Route::group(array('before' => 'auth'), function()
+Route::group(array('before' => 'admin'), function() //auth
 {
+	Route::get('admin/adminadd', function() { return View::make('admin.adminadd'); });
+
+	Route::post('admin/adminadd', array('as' => 'admin/adminadd', 'uses' => 'AdminController@postCreate'));
+
 	Route::get('admin/profile', array('as' => 'admin/profile', 'uses' => 'AdminController@Index'));
 	
 	Route::get('admin/users', array('as' => 'admin/users', 'uses' => 'AdminController@userListesi'));
@@ -74,14 +73,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/logout', array('as' => 'admin/logout', 'uses' => 'AdminController@logout'));
 });
 
+
 Route::get('login', function() { return View::make('user.login'); });
 Route::post('login', array('as' => 'login', 'uses' => 'UserController@postLogin'));
 
 Route::get('user/register', function() { return View::make('user.register'); });
 Route::post('user/register', array('as' => 'user/register', 'uses' => 'UserController@postCreate'));
-
-
-Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 
 Route::group(array('before' => 'auth'), function()
 {
@@ -131,5 +128,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('user/request_complaint', function() { return View::make('user.request_complaint'); });
 
 	Route::post('user/request_complaint', array('as' => 'user/request_complaint', 'uses' => 'RequestController@user_newrequest'));
+
+	Route::get('user/my_did_comments', array('as' => 'user/my_did_comments', 'uses' => 'UserController@my_did_comments'));
+
+	Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@logout'));
 
 });

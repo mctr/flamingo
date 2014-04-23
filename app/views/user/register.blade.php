@@ -67,7 +67,7 @@
                  </div>
                  		{{ Form::text('first_name', null, array('class'=>'form-control', 'placeholder'=>'FirstName')) }}
 						{{ Form::text('last_name', null, array('class'=>'form-control', 'placeholder'=>'LastName')) }}
-						{{ Form::text('birthday', null, array('class'=>'form-control', 'placeholder'=>'Birthday(ay/yıl/gün)')) }}
+						{{ Form::text('birthday', null, array('class'=>'form-control', 'placeholder'=>'Birthday(gün/ay/yıl)')) }}
 						{{ Form::text('phone_number', null, array('class'=>'form-control', 'placeholder'=>'Phone Number')) }}
 						{{ Form::text('gender', null, array('class'=>'form-control', 'placeholder'=>'Gender')) }}
 						<br>

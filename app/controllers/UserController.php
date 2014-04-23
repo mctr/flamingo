@@ -290,4 +290,11 @@ class UserController extends BaseController {
     	return View::make('user.confirm_waiting', compact('mycomments', 'confirmed'));
     }
 
+    public function my_did_comments()
+    {
+		$my_did_comments = DB::select('select * from comments where who_did_id = ?', array(Auth::user()->id));
+
+		return View::make('user.my_did_comments', compact('my_did_comments'));    	
+    }
+
 }

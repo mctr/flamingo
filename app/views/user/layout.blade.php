@@ -42,7 +42,9 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
+				<!--
 				<div class="btn-group pull-right" >
+					
 					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="icon-user"></i><span class="hidden-phone"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
 						<span class="caret"></span>
@@ -53,6 +55,14 @@
 						<li class="divider"></li>
 						<li><a href="{{ URL::to('logout') }}">Çıkış</a></li>
 					</ul>
+					
+				</div>
+				-->
+				<div class="btn-group pull-right" >
+					<a class="btn " href="{{ URL::route('user/profile') }}"><i class="icon-home"></i> Profilim</a>
+					<a class="btn " href="{{ URL::route('friends') }}"><i class="icon-user"></i> Arkadaşlar</a>
+					<a class="btn " href="{{ URL::to('logout') }}"> <i class="icon-lock"></i>Çıkış</a>
+					
 				</div>
 				
 				<!-- theme selector starts
@@ -82,6 +92,7 @@
 								<input placeholder="Search" class="search-query span2" name="query" type="text">
 							</form>
 						</li>-->
+						
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

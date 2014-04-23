@@ -39,7 +39,8 @@ class CommentsController extends BaseController {
                     $comment->save();
                     
                     // KULLANICIYI SORULARIN LİSTELENDİĞİ SAYFAYA YÖNLENDİRELİM
-                    return Redirect::to('user/profile');
+                    return Redirect::back()->with('message', 'Başarılı bir şekilde yorum yaptınız.');
+                    //return Redirect::to('user/profile');
                     
                 }
 	}

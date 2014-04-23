@@ -4259,6 +4259,23 @@ div.subnav {
 .btn:hover {
   background-position: 0 0;
 }
+.btn-primary {
+   background-color: #43a1da;
+   background-image: -moz-linear-gradient(top, #4ba6db, #369bd7);
+   background-image: -ms-linear-gradient(top, #4ba6db, #369bd7);
+   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4ba6db), to(#369bd7));
+   background-image: -webkit-linear-gradient(top, #4ba6db, #369bd7);
+   background-image: -o-linear-gradient(top, #4ba6db, #369bd7);
+   background-image: linear-gradient(top, #4ba6db, #369bd7);
+   background-repeat: repeat-x;
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4ba6db', endColorstr='#369bd7', GradientType=0);
+   border-color: #369bd7 #369bd7 #2071a1;
+   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+   *background-color: #369bd7;
+   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+ 
+   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+ }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active,
@@ -4412,6 +4429,7 @@ div.subnav {
   background-color: #f7b42c;
   *background-color: #f6ab13;
 }
+.button.btn,
 .btn-inverse:active,
 .btn-inverse.active {
   background-color: #e79e09 \9;

@@ -1,7 +1,7 @@
 @extends('user.layout')
 
 @section('title')
-		Yorumlarım
+	Yapılan Yorumlar
 @stop
 
 @section('styles')
@@ -26,16 +26,16 @@
 						<a href="{{ URL::to('user/profile') }}">{{ Auth::user()->first_name}} {{ Auth::user()->last_name }}</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="{{ URL::route('user/mycomments') }}">Yorumlar</a>
+						<a href="{{ URL::route('user/my_did_comments') }}">Yapılan Yorumlar</a>
 					</li>
 				</ul>
 			</div>
-			@foreach ($mycomments as $comment)
+			@foreach ($my_did_comments as $my_did_comment)
 			<div class="row-fluid sortable">
 				
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
-						@if ($who = User::find($comment->who_did_id))
+						@if ($who = User::find($my_did_comment->user_id))
 						<h2>{{ $who->first_name }} {{ $who->last_name }}</h2><br>
 						@endif
 						<div class="box-icon">
@@ -47,11 +47,11 @@
                   	<div class="row-fluid">
                   		
                   		<h5></h5>	
-                  		<h4>{{$comment->comment}} </h4>
+                  		<h4>{{ $my_did_comment->comment }} </h4>
                   	
                         <br>
                         <p>
-				          <i class="icon-calendar"></i>{{$comment->created_at}}
+				          <i class="icon-calendar"></i>{{ $my_did_comment->created_at }}
 				          | <i class="icon-tags"></i> Tags : 
 							<a href="#"><span class="label label-success">Beğen</span></a> 
 				        </p>

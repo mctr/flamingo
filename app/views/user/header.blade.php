@@ -10,6 +10,7 @@
 						<li><a href="{{ URL::to('user/profile') }}"><i class="icon-home"></i><span class="hidden-tablet">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></a></li>
 						<li><a href="{{ URL::to('user/information') }}"><i class="icon-cog"></i><span class="hidden-tablet">Bilgilerimi Düzenle</span></a></li>
 						<li><a href="{{ URL::route('user/mycomments') }}"><i class="icon-comment"></i><span class="hidden-tablet"> Yorumlarım</span></a></li>
+						<li><a href="{{ URL::route('user/my_did_comments') }}"><i class="icon-comment"></i><span class="hidden-tablet">Yaptıgım Yorumlarım</span></a></li>
 						<li><a href="{{ URL::route('gallery') }}"><i class="icon-camera"></i><span class="hidden-tablet"> Resimlerim</span></a></li>
 						<li><a href="{{ URL::to('friends') }}"><i class="icon-user"></i><span class="hidden-tablet"> Arkadaşlar</span></a></li>
 						<li><a href="{{ URL::to('user/request_complaint') }}"><i class="icon icon-sent"></i><span class="hidden-tablet"> İstek | Şikayet</span></a></li>

@@ -76,7 +76,7 @@
 							</div>
 							<div class="form-actions">
 								{{ Form::submit('Güncelle', array('class' => 'btn btn-success')); }}
-								<a href="{{ URL::to('user/confirm_waiting') }}" class="btn btn-primary">İptal</a>
+								<a href="{{ URL::to('user/confirmed_comments') }}" class="btn btn-primary">İptal</a>
 							</div>
 						  </fieldset>
 						{{ Form::close() }}  

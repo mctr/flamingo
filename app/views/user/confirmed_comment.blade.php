@@ -17,7 +17,7 @@
 		font-family: arial;
         /*resize:none;*/
         width: 650px;
-        height:120px;
+        height:100px;
     }
 </style>
 
@@ -83,7 +83,7 @@
 								@if ($who = User::find($comment->who_did_id))
 								<td>{{ $who->first_name }} {{ $who->last_name }}</td>
 								@endif
-								<td>{{ $comment->comment }}</td>
+								<td>{{ Form::textarea('content',$comment->comment , array('rows' => '0')) }}</td>
 								<!--<td>{{ Form::textarea('content',$comment->comment ) }}</td>-->
 								<td class="center">
 									<a class="btn btn-success" href="{{ URL::route('update', array('id' => $comment->id)) }}">

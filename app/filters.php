@@ -33,9 +33,26 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('admin', function()
+{
+	if (Auth::user()->status)
+	{
+		if (Auth::user()->status != '3')
+    	{
+    		return Redirect::to('user/profile');
+    	}	
+	}
+    else
+    {
+    	return Redirect::to('login');	
+    }
+
+});
+
+
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest()) return Redirect::guest('login'); //guest
 });
 
 

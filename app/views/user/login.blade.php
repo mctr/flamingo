@@ -33,7 +33,7 @@
 	
 		<div class="container">
     <div class="row top_space">
-    	<a class="btn btn-danger pull-left" href="{{ URL::to('/') }}"><< Anasayfa</a><br>
+    	<!--<a class="btn btn-danger pull-left" href="{{ URL::to('/') }}"><< Anasayfa</a><br>-->
     		<center><h1>Mezuniyet Yıllık Uygulaması</h1></center><br><br>
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
@@ -78,6 +78,11 @@
 						<br>-->
 						{{ Form::submit('Giriş', array('class'=>'btn btn-large btn-success btn-block'))}}
 					{{ Form::close() }}
+					
+						<a href="{{ Url::to('user/register') }}" class="pull-left"><small>Kayıtlı degil misin ?</small></a>
+						<a href="#" class="pull-right"><small>Şifremi Unuttum ?</small></a><br>
+						<center><a href="{{ URL::to('/') }}" class="pull-center"><small>Anasayfa</small></a></center>
+					
 				</div>
             </div>
         </div>
@@ -89,6 +94,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 
 	<!-- jQuery -->
+
 	<script src="asset/js/jquery-1.7.2.min.js"></script>
 	<!-- jQuery UI -->
 	<script src="asset/js/jquery-ui-1.8.21.custom.min.js"></script>

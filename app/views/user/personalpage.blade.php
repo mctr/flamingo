@@ -88,7 +88,10 @@
 								        @endforeach
 								        </ul>
 								    </div>
-
+								@endif
+								
+								@if(Session::get('message'))
+									<div class="alert alert-success">{{ Session::get('message') }}</div>
 								@endif
 
 							  <label class="control-label" for="textarea2">Yorum</label>
