@@ -22,6 +22,9 @@
     {{ HTML::style('assets/css_home/demo.css') }}
     {{ HTML::style('assets/css_home/style.css') }}
 
+    {{ HTML::style('http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.css') }}
+    {{ HTML::style('http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.css') }}
+
     @yield('styles')
 
 </head>
@@ -36,7 +39,7 @@
         <li><a href="#top">Ana Sayfa</a></li>
         <li><a href="#portfolio">E-Resim</a></li>
         <li><a href="#catalog">Katalog</a></li>
-        <li><a href="#">Hakkımız</a></li>
+        <li><a href="#iletisim">Hakkımız</a></li>
         <li><a href="#iletisim">İletişim</a></li>
       </ul>
     </div>
@@ -174,7 +177,7 @@
  
     <!-- /Portfolio -->
     @{{include('homePage.catalog')}}
-
+    
 	@include('homePage.iletisim')
 
 
@@ -220,10 +223,10 @@
     {{ HTML::script('assets/js/bootstrap-modalmanager.js') }}
     {{ HTML::script('assets/js/bootstrap-modal.js') }}
     {{ HTML::script('assets/js/jquery.imgslider.js') }}
-    {{-- HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js') --}}
-    {{-- HTML::script('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js') --}}
-    {{-- HTML::script('http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js') --}}
-    {{-- HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') --}}
+    {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js') }}
+    {{ HTML::script('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js') }}
+    {{ HTML::script('http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js') }}
+    {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') }}
 
     @yield('scripts')
 
