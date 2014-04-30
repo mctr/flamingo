@@ -12,12 +12,12 @@
 						<li><a href="{{ URL::route('user/mycomments') }}"><i class="icon-comment"></i><span class="hidden-tablet"> Yorumlarım</span></a></li>
 						<li><a href="{{ URL::route('user/my_did_comments') }}"><i class="icon-comment"></i><span class="hidden-tablet">Yaptıgım Yorumlarım</span></a></li>
 						<li><a href="{{ URL::route('gallery') }}"><i class="icon-camera"></i><span class="hidden-tablet"> Resimlerim</span></a></li>
-						<li><a href="{{ URL::to('friends') }}"><i class="icon-user"></i><span class="hidden-tablet"> Arkadaşlar</span></a></li>
+						<!--<li><a href="{{ URL::to('friends') }}"><i class="icon-user"></i><span class="hidden-tablet"> Arkadaşlar</span></a></li>-->
 						<li><a href="{{ URL::route('user/humour') }}"><i class="icon-share"></i><span class="hidden-tablet"> Mizah</span></a></li>
 						<li><a href="{{ URL::to('user/request_complaint') }}"><i class="icon icon-sent"></i><span class="hidden-tablet"> İstek | Şikayet</span></a></li>
 						<li class="nav-header hidden-tablet">Durum</li>
 						<li><a href="{{ URL::to('user/information') }}"><i class="icon-edit"></i><span class="hidden-tablet"> Parola Değiştir</span></a></li>
-						<li><a href="{{ URL::to('logout')}}"><i class="icon-lock"></i><span class="hidden-tablet"> Çıkış</span></a></li>
+						<!--<li><a href="{{ URL::to('logout')}}"><i class="icon-lock"></i><span class="hidden-tablet"> Çıkış</span></a></li>-->
 					</ul>
 				</div><!--/.well-->
 			</div><!--/span-->

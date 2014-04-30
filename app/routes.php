@@ -94,7 +94,9 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::post('user/comment_update', array('as' => 'user/comment_update', 'uses' => 'CommentsController@comment_update'));
 
-	Route::get('user/humour', array('as' => 'user/humour', 'uses' => 'UserController@humour'));
+	Route::get('user/humour', array('as' => 'user/humour', 'uses' => 'HumourController@Index'));
+
+	Route::post('user/humour', array('as' => 'user/humour', 'uses' => 'HumourController@new_humour'));
 
 	Route::get('user/delete/{id}', array('as' => 'delete', 'uses' => 'CommentsController@delete'));
 

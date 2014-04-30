@@ -297,9 +297,4 @@ class UserController extends BaseController {
 		return View::make('user.my_did_comments', compact('my_did_comments'));    	
     }
 
-    public function humour()
-    {
-    	return View::make('user.humour');
-    }
-
 }

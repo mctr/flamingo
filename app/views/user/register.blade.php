@@ -34,7 +34,8 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
             	<div class="panel-heading">
-                     <center><h3 class="panel-title">Mezuniyet Yıllık Uygulaması</h3><br><h3 class="panel-title">Lütfen Kayıt Olun.</h3></center>
+                     <center><h3 class="panel-title">Mezuniyet Yıllık Uygulaması</h3><br>
+                     	<h3 class="panel-title">Lütfen Kayıt Olun.</h3></center>
                  </div>
                 <div class="panel-body">
 					{{ Form::open(array('url'=>'user/register', 'class'=>'form-signup')) }}
@@ -56,29 +57,29 @@
 						<div class="alert alert-success">{{ Session::get('message') }}</div>
 						@endif
 						            	<div class="panel-heading">
-                     <h3 class="panel-title"><center>User İnformation</center></h3>
+                     <h3 class="panel-title"><center>Kullanıcı Bilgileri</center></h3>
                  </div>
 						{{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email')) }}
-						{{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
-						{{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Password Confirmation')) }}
+						{{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Parola')) }}
+						{{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Parola Tekrar')) }}
 						<br>
 						            	<div class="panel-heading">
-                     <h3 class="panel-title"><center>Membership İnformation</center></h3>
+                     <h3 class="panel-title"><center>Üyelik Bilgileri</center></h3>
                  </div>
-                 		{{ Form::text('first_name', null, array('class'=>'form-control', 'placeholder'=>'FirstName')) }}
-						{{ Form::text('last_name', null, array('class'=>'form-control', 'placeholder'=>'LastName')) }}
-						{{ Form::text('birthday', null, array('class'=>'form-control', 'placeholder'=>'Birthday(gün/ay/yıl)')) }}
-						{{ Form::text('phone_number', null, array('class'=>'form-control', 'placeholder'=>'Phone Number')) }}
-						{{ Form::text('gender', null, array('class'=>'form-control', 'placeholder'=>'Gender')) }}
+                 		{{ Form::text('first_name', null, array('class'=>'form-control', 'placeholder'=>'Ad')) }}
+						{{ Form::text('last_name', null, array('class'=>'form-control', 'placeholder'=>'Soyad')) }}
+						{{ Form::text('birthday', null, array('class'=>'form-control', 'placeholder'=>'Dogum Tarihi(gün/ay/yıl)')) }}
+						{{ Form::text('phone_number', null, array('class'=>'form-control', 'placeholder'=>'Telefon')) }}
+						{{ Form::text('gender', null, array('class'=>'form-control', 'placeholder'=>'Cinsiyet')) }}
 						<br>
 						            	<div class="panel-heading">
-                     <h3 class="panel-title"><center>College İnformation</center></h3>
+                     <h3 class="panel-title"><center>Okul Bilgileri</center></h3>
                  </div>
-						{{ Form::text('faculty_name', null, array('class'=>'form-control', 'placeholder'=>'Faculty Name')) }}
-						{{ Form::text('department_name', null, array('class'=>'form-control', 'placeholder'=>'Department Name')) }}
-						{{ Form::text('student_number', null, array('class'=>'form-control', 'placeholder'=>'Student Number')) }}
+						{{ Form::text('faculty_name', null, array('class'=>'form-control', 'placeholder'=>'Fakülte')) }}
+						{{ Form::text('department_name', null, array('class'=>'form-control', 'placeholder'=>'Bölüm')) }}
+						{{ Form::text('student_number', null, array('class'=>'form-control', 'placeholder'=>'Okul Numarası')) }}
 						<br>
-						{{ Form::submit('Register', array('class'=>'btn btn-large btn-success btn-block'))}}
+						{{ Form::submit('Kaydol', array('class'=>'btn btn-large btn-success btn-block'))}}
 					{{ Form::close() }}
 				</div>
             </div>
